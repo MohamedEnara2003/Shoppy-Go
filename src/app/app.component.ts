@@ -4,9 +4,13 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  template : `
+  <section>
+  <router-outlet />
+  <router-outlet name="auth"/>
+  </section>
+  ` ,
 })
 export class AppComponent {
-  title = 'E-commerce-angular-19';
+  title = 'Shoppy-Go';
 }

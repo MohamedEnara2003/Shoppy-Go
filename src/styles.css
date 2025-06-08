@@ -1,1 +1,47 @@
-/* You can add global styles to this file, and also import other style files */
+@import './styles/screen-reader.scss';
+@import "tailwindcss";
+@import "primeicons/primeicons.css";
+
+@theme {
+        --color-primary: #030406;
+        --color-secondary: #DB4444;
+        --color-tertiary: #34A853;
+}
+
+*{
+scroll-behavior: smooth;
+box-sizing: border-box;
+}
+
+@keyframes sideLeft {
+0%,100% { transform: translateX(-400px); }
+100% { transform: translateX(0px);}
+}
+
+@keyframes sideUp{
+0%,100% { transform: translateY(400px); }
+100% { transform: translateX(0px);}
+}
+
+@layer components {
+
+.title-h1 {
+@apply font-semibold capitalize text-lg sm:text-xl text-primary ;
+}
+
+.btn-secondary {
+@apply bg-secondary shadow shadow-black hover:bg-secondary/90 text-white/80 capitalize rounded-sm
+duration-300 transition-all font-semibold px-4 p-2 cursor-pointer border border-secondary;
+}
+.btn-add-cart {
+ @apply bg-primary text-white p-1 rounded-sm  shadow shadow-primary capitalize font-[300]
+ hover:bg-primary/90 duration-200 transition-all cursor-pointer;
+}
+.animate-sideLeft {
+animation: sideLeft 0.5s  ease-in-out;
+}
+.animate-sideUp {
+animation: sideUp 0.5s  ease-in-out;
+}
+}       
+

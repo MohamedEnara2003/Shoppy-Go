@@ -1,5 +1,5 @@
 {
-  "name": "e-commerce-angular-19",
+  "name": "Shoppy-Go",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-slider/ngx-slider": "^19.0.0",
     "@angular/common": "^19.2.0",
     "@angular/compiler": "^19.2.0",
     "@angular/core": "^19.2.0",
@@ -17,7 +18,18 @@
     "@angular/platform-browser": "^19.2.0",
     "@angular/platform-browser-dynamic": "^19.2.0",
     "@angular/router": "^19.2.0",
+    "@ngrx/signals": "^19.2.0",
+    "@primeng/themes": "^19.1.2",
+    "@supabase/gotrue-js": "^2.61.0",
+    "@supabase/supabase-js": "^2.49.4",
+    "@tailwindcss/postcss": "^4.1.7",
+    "dayjs": "^1.11.13",
+    "json": "^11.0.0",
+    "postcss": "^8.5.3",
+    "primeicons": "^7.0.0",
+    "primeng": "^19.1.2",
     "rxjs": "~7.8.0",
+    "tailwindcss": "^4.1.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },
@@ -33,5 +45,10 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.7.2"
+  },
+  "overrides": {
+    "@supabase/supabase-js": {
+      "@supabase/auth-js": "2.61.0"
+    }
   }
 }
