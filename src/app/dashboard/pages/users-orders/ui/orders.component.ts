@@ -4,12 +4,11 @@ import { SharedModule } from '../../../../shared/modules/shared.module';
 import { OrderRelations, OrderStatus } from '../../../../core/interfaces/orders.type';
 import { OrderViewComponent } from "../components/order-view/order-view.component";
 import { DayJsService } from '../../../../core/services/day-js.service';
-import { AnalyticsCardComponent } from "../../../components/analytics-card/analytics-card.component";
 import { OrderAnalyticsComponent } from "../components/order-analytics/order-analytics.component";
 
 @Component({
   selector: 'app-orders',
-  imports: [SharedModule, OrderViewComponent, AnalyticsCardComponent, OrderAnalyticsComponent],
+  imports: [SharedModule, OrderViewComponent, OrderAnalyticsComponent],
   template: `
     <main class="w-full">
       <h1 class="sr-only">Orders Management</h1>

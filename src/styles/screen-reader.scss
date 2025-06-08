@@ -1,4 +1,4 @@
-// Screen reader only class
+/* Screen reader only class */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -11,7 +11,7 @@
   border: 0;
 }
 
-// Screen reader only class that becomes visible on focus
+/* Screen reader only class that becomes visible on focus */
 .sr-only-focusable {
   &:not(:focus) {
     position: absolute;
@@ -26,7 +26,7 @@
   }
 }
 
-// Screen reader only class that becomes visible on hover
+/* Screen reader only class that becomes visible on hover */
 .sr-only-hoverable {
   &:not(:hover) {
     position: absolute;
