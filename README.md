@@ -1,7 +1,7 @@
 # E-Commerce-Angular19
 
 ## Packges
-#- npm install primeng @primeng/themes && npm install primeicons
+#- npm install primeng @primeng/themes && npm install primeicons && npm install @primeng/themes
 #- npm install tailwindcss @tailwindcss/postcss postcss --force
 #- npm install --save @angular-slider/ngx-slider
 #- npm install dayjs

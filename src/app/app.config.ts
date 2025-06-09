@@ -3,7 +3,7 @@ import { InMemoryScrollingOptions, provideRouter, withInMemoryScrolling } from '
 import { routes } from './app.routes';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
-import Nora from '@primeng/themes/nora';
+import Aura from '@primeng/themes/aura';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
 
@@ -11,6 +11,7 @@ const scrollConfig: InMemoryScrollingOptions = {
   scrollPositionRestoration: 'top',
   anchorScrolling: 'enabled',
 };
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
@@ -19,7 +20,7 @@ export const appConfig: ApplicationConfig = {
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Nora
+        preset: Aura
       }
     }),
     MessageService,

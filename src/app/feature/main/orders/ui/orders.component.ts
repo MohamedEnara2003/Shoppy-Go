@@ -26,26 +26,26 @@ import { CommonModule } from '@angular/common';
   <section class="w-full" role="main" aria-label="Orders">
     <app-nav-list-item [items]="navLinks()" class="pb-5" aria-label="Navigation"/>
     
-    <main class="space-y-20" aria-live="polite">
+    <main class="space-y-15 pt-5 " aria-live="polite">
       @for (order of orderStore.orders(); track order.id; let index = $index) {
         @defer (on viewport) {
-          <div class="w-full grid grid-cols-1 shadow shadow-gray-300 rounded-t-2xl" 
-               role="article"
-               [attr.aria-label]="'Order ' + (index + 1)">
+          <div class="w-full grid grid-cols-1 shadow shadow-gray-300 rounded-t-2xl border-1 border-gray-400" 
+              role="article"
+              [attr.aria-label]="'Order ' + (index + 1)">
             <app-order-header [orderStatus]="order.status"/>
             <app-order-card [order]="order"/>
           </div>
         }@placeholder {
           <div class="w-full h-150 rounded-t-2xl bg-gray-300 animate-pulse" 
               role="status"
-             aria-label="Loading order content"></div>
+            aria-label="Loading order content"></div>
         }
       }
 
       @if(orderStore.isLoading()){
         <div class="w-full h-80 flex justify-center items-center" 
-             role="status"
-             aria-label="Loading orders">
+            role="status"
+            aria-label="Loading orders">
           <p-progress-spinner 
             strokeWidth="8" 
             fill="transparent" 

@@ -10,11 +10,11 @@ import { OrderStore } from '../../../../../store/orders/orders.signal';
   template : `
   <nav class="w-full grid grid-cols-1 gap-4">
 
-  <p-accordion [value]="['0','2']" [multiple]="true"  >
+  <p-accordion [value]="['0']" [multiple]="true" >
     <p-accordion-panel value="0" >
         <p-accordion-header>Order Details</p-accordion-header>
-        <p-accordion-content>
-    <header class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 ">
+        <p-accordion-content   >
+    <header class="w-full  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 ">
       <div class="flex flex-col justify-center items-center">
       <h1 class="text-gray-500 font-semibold">
       <i  (click)="copyOrderNumber(order().id!)"
@@ -81,7 +81,7 @@ import { OrderStore } from '../../../../../store/orders/orders.signal';
         </ul>
         </p-accordion-content>
     </p-accordion-panel>
-    <div class="flex  p-2  border-x-1 border-b-1  border-b-gray-400 border-x-gray-400">
+    <div class="flex  p-2">
     <p-confirmpopup />
     <p-button  (onClick)="confirm($event , order().id!)" label="Cancel Order"  variant="text" severity="danger"/>
     </div>
