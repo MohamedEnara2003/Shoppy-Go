@@ -29,9 +29,24 @@ export const CartStore = signalStoreFeature(
     withState(initialCartState),
     withComputed((store) => { 
     return {
-    cartsCount: computed<number>(() => store.carts().reduce((prev , cart) => prev += cart.quantity , 0 )),
-    cartTotalPrice: computed<number>(() => store.carts().reduce((prev , cart) => 
-    prev += cart.product.final_price * cart.quantity , 0)),
+    cartsCount: computed<number>(() => {
+        const carts = store.carts();
+        if (!carts.length) return 0;
+        let count = 0;
+        for (const cart of carts) {
+            count += cart.quantity;
+        }
+        return count;
+    }),
+    cartTotalPrice: computed<number>(() => {
+        const carts = store.carts();
+        if (!carts.length) return 0;
+        let total = 0;
+        for (const cart of carts) {
+            total += cart.product.final_price * cart.quantity;
+        }
+        return total;
+    })
     }
     }), 
     withMethods((store) => {

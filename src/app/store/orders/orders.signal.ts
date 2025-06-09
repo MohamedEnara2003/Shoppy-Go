@@ -26,6 +26,7 @@ export const OrderStore  = signalStore(
     orderCount : computed<number>(() => store.orders().length),
     orderItemsCount : computed<number>(() => 
     store.orders().reduce((prev , vlaue) => prev += vlaue.order_items.length , 0)),
+    
     orderItemsTotalPrice : computed<number>(() => 
     store.orders().reduce((prev , vlaue) => prev += vlaue.total_price , 0)),
     } 

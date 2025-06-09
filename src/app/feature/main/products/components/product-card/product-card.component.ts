@@ -40,12 +40,9 @@ import { AppStore } from '../../../../../store/app.store';
     [src]="product().images[0].img_url" 
     [alt]="product().images[0].img_name"
     loading="lazy" 
-    class="size-[80%] sm:size-[90%] object-contain"
+    class="size-[80%] sm:size-[90%] object-contain aspect-square"
     [attr.aria-label]="'Product image: ' + product().images[0].img_name">
-  <a class="hidden group-hover:inline-block size-full bg-primary/20 absolute left-0 top-0 z-20"
-    [attr.aria-label]="'View details for ' + product().title"
-    role="link">
-  </a>
+    
   </div>
   
   <nav class="absolute right-2 top-5 flex flex-col gap-2 z-50" aria-label="Product actions">
@@ -56,7 +53,8 @@ import { AppStore } from '../../../../../store/app.store';
     [attr.aria-pressed]="appStore.isInWishlist(product())">
   <i class="cursor-pointer hover:text-secondary duration-200 transition-colors z-10 pi"
     [ngClass]="appStore.isInWishlist(product()) ? 'pi-heart-fill text-secondary' : 'pi-heart'"
-    aria-hidden="true"></i>
+    aria-hidden="true">
+  </i>
   </button>
   <button  
     type="button" 

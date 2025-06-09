@@ -14,14 +14,22 @@ const scrollConfig: InMemoryScrollingOptions = {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes ,   withInMemoryScrolling(scrollConfig),),
+    provideZoneChangeDetection({ 
+      eventCoalescing: true,
+      runCoalescing: true 
+    }),
+    provideRouter(routes, withInMemoryScrolling(scrollConfig)),
     provideHttpClient(withFetch()),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {
-        preset: Aura
-      }
+        preset: Aura,
+        options: {
+          darkModeSelector: false
+        }
+      },
+      ripple: false,
+      inputStyle: 'outlined'
     }),
     MessageService,
   ]

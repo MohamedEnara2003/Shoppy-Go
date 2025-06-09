@@ -1,18 +1,24 @@
 import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CarouselModule } from 'primeng/carousel';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-main-carousel',
-  imports: [CarouselModule , RouterModule],
+  imports: [CarouselModule, RouterModule, CommonModule],
   template: `
 <p-carousel [value]="mainImages()" [numVisible]="1" [numScroll]="1" 
 [circular]="true" [showNavigators]="false" [autoplayInterval]="3000"> 
 <ng-template let-value #item>
-    <div class="w-full h-[30vh] sm:h-[60vh] lg:h-[70vh] bg-black flex justify-between items-center relative"
+    <div class="w-full aspect-[16/9] bg-gray-100 flex justify-between items-center relative"
     [routerLink]="value.path" [queryParams]="value.categoryQuery">
-        <img [src]="value.img_url" [alt]="value.title" class="w-full h-full object-cover">
+        <img [src]="value.img_url" 
+            [alt]="value.title" 
+            class="w-full h-full object-cover"
+            width="1920"
+            height="1080"
+            loading="eager"
+            decoding="async" />
     </div>
 </ng-template>
 </p-carousel>

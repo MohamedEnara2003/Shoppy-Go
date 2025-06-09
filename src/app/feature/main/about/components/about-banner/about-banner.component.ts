@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
     <div 
-      class="w-full h-120 shadow shadow-primary"
+      class="relative w-full aspect-[3/2] shadow shadow-primary"
       role="img"
       aria-label="About page banner image"
     >

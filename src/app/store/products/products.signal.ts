@@ -47,40 +47,68 @@ export const ProductsStore =  signalStoreFeature(
     withComputed((store) => {
     const paginatorService = inject(PaginatorService);
     return {
-
     productsCount : computed<number>(() => store.products().length),
     productsTotalPrices : computed<number>(() => store.products().reduce((p , v) => p += v.final_price , 0)),
     
     categories : computed<string[]>(() => {
-    const categories = new Set(store.products().map((product) => product.category));
-    const categoriesArr = Array.from(categories);
-    return categoriesArr;
+        const products = store.products();
+        if (!products.length) return [];
+        const categories = new Set<string>();
+        for (const product of products) {
+            categories.add(product.category);
+        }
+        return Array.from(categories);
     }),
     
     types : computed<string[]>(() => {
-    const types = new Set(store.products().map((product) => product.type));
-    const typesArr = Array.from(types);
-    return typesArr;
+        const products = store.products();
+        if (!products.length) return [];
+        const types = new Set<string>();
+        for (const product of products) {
+            types.add(product.type);
+        }
+        return Array.from(types);
     }),
     
     brands : computed<string[]>(() => {
-    const brands = new Set(store.products().map((product) => product.brand));
-    const brandsArr = Array.from(brands);
-    return brandsArr;
+        const products = store.products();
+        if (!products.length) return [];
+        const brands = new Set<string>();
+        for (const product of products) {
+            brands.add(product.brand);
+        }
+        return Array.from(brands);
     }),
 
     categoryMegaMenuItem : computed<MegaMenuItem[]>(() => {
-        const categories = Array.from(new Set(store.products().map((product) => product.category)));
-        return categories.map(category => {
-            const categoryProducts = store.products().filter(product => product.category === category);
-            const categoryTypes = Array.from(new Set(categoryProducts.map(product => product.type)));      
-            const groupedTypes = [];
-            for (let i = 0; i < categoryTypes.length; i += 2) {
-                groupedTypes.push(categoryTypes.slice(i, i + 2));
+        const products = store.products();
+        if (!products.length) return [];
+        
+        const categoryMap = new Map<string, Set<string>>();
+        const productMap = new Map<string, Product[]>();
+        
+        // Build efficient data structures
+        for (const product of products) {
+            if (!categoryMap.has(product.category)) {
+                categoryMap.set(product.category, new Set());
+                productMap.set(product.category, []);
             }
+            categoryMap.get(product.category)?.add(product.type);
+            productMap.get(product.category)?.push(product);
+        }
+        
+        return Array.from(categoryMap.entries()).map(([category, types]) => {
+            const categoryProducts = productMap.get(category) || [];
+            const typeGroups = [];
+            const typesArray = Array.from(types);
+            
+            for (let i = 0; i < typesArray.length; i += 2) {
+                typeGroups.push(typesArray.slice(i, i + 2));
+            }
+            
             return {
                 label: category,
-                items: groupedTypes.map(typeGroup => [
+                items: typeGroups.map(typeGroup => [
                     ...typeGroup.map(type => ({
                         label: type,
                         items: categoryProducts
@@ -95,22 +123,30 @@ export const ProductsStore =  signalStoreFeature(
         });
     }),
     
-    filteringProducts  : computed<Product[]>(() => {
+    filteringProducts : computed<Product[]>(() => {
+        const products = store.products();
+        if (!products.length) return [];
+        
         const category = store.queryCategory();
         const type = store.queryType();
         const brand = store.queryBrand();
+        const minPrice = store.minPrice();
+        const maxPrice = store.maxPrice();
         const start = paginatorService.first();
         const rows = paginatorService.rows() + start;
 
-        const products = store.products().filter((product) => 
-        (category === '' || product.category === category) &&
-        (type === '' || product.type === type) &&
-        (brand === '' || product.brand === brand) &&
-        (product.final_price >= store.minPrice() && product.final_price <= store.maxPrice()) 
-        ).slice(start, rows).sort((a , b) => a.type > b.type ? -1 : 1);
-        return products;
-    }), 
- 
+        // Early return if no filters are active
+        if (!category && !type && !brand && minPrice === 0 && maxPrice === 0) {
+            return products.slice(start, rows);
+        }
+
+        return products.filter(product => 
+            (!category || product.category === category) &&
+            (!type || product.type === type) &&
+            (!brand || product.brand === brand) &&
+            (product.final_price >= minPrice && product.final_price <= maxPrice)
+        ).slice(start, rows);
+    })
     }
     }),
 
