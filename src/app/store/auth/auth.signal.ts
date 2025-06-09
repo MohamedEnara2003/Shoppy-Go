@@ -8,7 +8,6 @@ import {takeUntilDestroyed  } from "@angular/core/rxjs-interop";
 import { UserType } from "../../core/interfaces/user.type";
 
 
-
 interface  AuthState {
     currentUser  : UserType | null;
     signUpErrorMsg : string ;
@@ -32,9 +31,6 @@ export const AuthStore =  signalStoreFeature(
     authServie.signInWithGoogle();
     },
 
-    signWithFacebook() : void {
-    authServie.signInWithFaceBook();
-    },
 
     signUp(fullName: string, email: string, password: string) : void {
     authServie.signUp(fullName , email , password).pipe(

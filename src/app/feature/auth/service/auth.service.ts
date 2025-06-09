@@ -22,16 +22,6 @@ export class AuthService {
     return from(promise);
   }
   
-  signInWithFaceBook() : Observable<any> {
-    const promise = authClient.signInWithOAuth({
-    provider : "facebook" ,
-    options : {
-    redirectTo : 'http://localhost:4200/main/auth/sign-up(auth:call-back)'
-    }
-  })
-    return from(promise);
-  }
-  
   signUp(fullName : string, email : string , password : string) : Observable<any> {
     const promise = authClient.signUp({email , password , options : {
     data : {fullName}

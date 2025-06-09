@@ -10,7 +10,7 @@ import { AppStore } from '../../../../../store/app.store';
   imports: [SharedModule, RouterModule, BtnAddToCartComponent],
   template: `
   <article 
-    class="group relative w-80 sm:w-60 h-70 flex flex-col justify-between text-primary shadow shadow-gray-400 
+    class="group relative w-full h-70 flex flex-col justify-between text-primary shadow shadow-gray-400 
     rounded-box hover:shadow-xl p-2 duration-200 transition-shadow"
     [attr.aria-label]="'Product: ' + product().title"
     role="article">
@@ -34,23 +34,21 @@ import { AppStore } from '../../../../../store/app.store';
   </span>
   }
 
-  <div class="relative size-full bg-white flex justify-center items-center">
+  <div [routerLink]="['/main/product/' , product().id]" (click)="appStore.quantityChange(1)" 
+  class="relative size-full bg-white flex justify-center items-center">
   <img 
     [src]="product().images[0].img_url" 
     [alt]="product().images[0].img_name"
     loading="lazy" 
-    class="size-[90%] object-contain"
+    class="size-[80%] sm:size-[90%] object-contain"
     [attr.aria-label]="'Product image: ' + product().images[0].img_name">
-  <a 
-    [routerLink]="['/main/product/' , product().id]" 
-    (click)="appStore.quantityChange(1)" 
-    class="hidden group-hover:inline-block size-full bg-primary/30 absolute left-0 top-0 z-20"
+  <a class="hidden group-hover:inline-block size-full bg-primary/20 absolute left-0 top-0 z-20"
     [attr.aria-label]="'View details for ' + product().title"
     role="link">
   </a>
   </div>
   
-  <nav class="absolute right-2 top-5 flex flex-col gap-2" aria-label="Product actions">
+  <nav class="absolute right-2 top-5 flex flex-col gap-2 z-50" aria-label="Product actions">
   <button 
     type="button" 
     (click)="appStore.toggleWishlist(product())"

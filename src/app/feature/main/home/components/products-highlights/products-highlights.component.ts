@@ -6,26 +6,21 @@ import { CarouselModule } from 'primeng/carousel';
 
 @Component({
   selector: 'app-products-highlights',
-  standalone: true,
   imports: [ProductCardComponent, CarouselModule],
   template: `
-    <section 
-      class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
-      aria-label="Featured Products"
-    >
+    <section class="w-full "
+      aria-label="Featured Products">
       <ng-content/>
-      <div class="relative">
+      <div >
         <p-carousel 
+          [numVisible]="3" [numScroll]="3" [circular]="false"
           [value]="products()" 
           [responsiveOptions]="responsiveOptions"
           [showIndicators]="false"
           [showNavigators]="true">
           <ng-template let-product pTemplate="item">
             <div class="p-2">
-              <app-product-card 
-                [product]="product"
-                class="h-full transition-transform duration-300 hover:scale-105"
-              />
+              <app-product-card [product]="product" />
             </div>
           </ng-template>
         </p-carousel>
@@ -39,24 +34,24 @@ export class ProductsHighlightsComponent {
   
   responsiveOptions = [
     {
-      breakpoint: '1400px',
-      numVisible: 4,
-      numScroll: 1,
+        breakpoint: '1400px',
+        numVisible: 4,
+        numScroll: 1
     },
     {
-      breakpoint: '1024px',
-      numVisible: 3,
-      numScroll: 1,
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1
     },
     {
-      breakpoint: '768px',
-      numVisible: 2,
-      numScroll: 1,
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1
     },
     {
-      breakpoint: '480px',
-      numVisible: 1,
-      numScroll: 1,
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1
     }
-  ];
+]
 }

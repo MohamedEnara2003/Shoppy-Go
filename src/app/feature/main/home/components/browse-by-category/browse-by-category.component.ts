@@ -22,7 +22,7 @@ import { CategoriesService } from '../../../../../core/services/categories.servi
   <ng-template let-category #item>
 
   @defer (on viewport) {
-  <div class="size-40 rounded-b-lg flex justify-center items-center border-b-2 border-b-secondary  
+  <div class="w-full h-40 rounded-b-lg flex justify-center items-center border-b-2 border-b-secondary  
   hover:opacity-80 duration-200 transition-color cursor-pointer p-4">
   <img [src]="category.img_url" [alt]="category.img_url" class="size-full object-contain"
   loading="lazy">

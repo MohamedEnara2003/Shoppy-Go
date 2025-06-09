@@ -36,6 +36,7 @@ import { CommonModule } from '@angular/common';
             backdrop-blur bg-gradient-to-t from-black/40 to-black/30 text-white/90 border border-white/10 capitalize"
             role="menu"
           >
+
             @if(!appStore.currentUser()){
               <li role="none">
                 <a 

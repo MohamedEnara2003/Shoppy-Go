@@ -37,8 +37,8 @@ import { CommonModule } from '@angular/common';
           </div>
         }@placeholder {
           <div class="w-full h-150 rounded-t-2xl bg-gray-300 animate-pulse" 
-               role="status"
-               aria-label="Loading order content"></div>
+              role="status"
+             aria-label="Loading order content"></div>
         }
       }
 

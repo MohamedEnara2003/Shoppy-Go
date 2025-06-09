@@ -5,7 +5,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'app-root',
   imports: [RouterOutlet],
   template : `
-  <section>
+  <section >
   <router-outlet />
   <router-outlet name="auth"/>
   </section>

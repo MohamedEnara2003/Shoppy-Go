@@ -12,7 +12,8 @@ import { CommonModule } from '@angular/common';
     @for (item of headerLinks(); track item) {
     <li >
     <a [href]="item.path" [routerLink]="item.path" 
-    class=" hover:text-secondary duration-300 text-[10px] md:text-sm font-[500] flex flex-col  items-center "
+    class=" text-primary hover:text-secondary duration-300 text-[10px] md:text-sm font-[500] 
+    flex flex-col  items-center "
     [ngClass]="item.class" routerLinkActive="text-secondary">
     <span class="lg:hidden " >
     <i [ngClass]="item.linkIcon"  style="font-size: 1.2rem;" ></i>

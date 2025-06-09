@@ -1,5 +1,5 @@
 import { computed, inject } from "@angular/core";
-import { Product } from "../../core/interfaces/products.type";
+import { Product, ProductInventoryStatus } from "../../core/interfaces/products.type";
 import { patchState,  signalStoreFeature , withComputed, withMethods, withState } from "@ngrx/signals";
 import { ProductsService } from "../../feature/main/products/service/products.service";
 import { catchError, of, switchMap, take, tap } from "rxjs";
@@ -241,7 +241,14 @@ export const ProductsStore =  signalStoreFeature(
     patchState(store , ({editedProduct , uploadedFiles}));
     this.isOpenUpsertProduct(true , editedProduct.category);
     },
- 
+    
+    initProductStatus(status: ProductInventoryStatus): string {
+        if(status === 'INSTOCK') return 'success';
+        if(status === 'LOWSTOCK') return 'warn';
+        if(status === 'OUTSTOCK') return 'danger';
+        return 'Secondary';
+    },
+
     }
     })
 )

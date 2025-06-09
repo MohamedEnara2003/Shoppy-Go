@@ -24,7 +24,7 @@ import { RouterModule } from '@angular/router';
     <div class=" grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-5 "> 
     <app-aside-products-filtering class="w-full"/>
     
-    <main class="w-full col-span-2 flex flex-wrap justify-evenly items-center gap-2 sm:gap-5">
+    <main class="w-full col-span-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-2 sm:gap-5">
       @for (product of appStore.filteringProducts(); track product.id) {
       <app-product-card [product]="product"/>
       }@empty {
@@ -39,7 +39,7 @@ import { RouterModule } from '@angular/router';
           </button>
         </div>
       }
-    <div class="w-full card flex justify-center ">
+    <div class="w-full card flex justify-center  col-span-1 md:col-span-3 2xl:col-span-4">
       <p-paginator 
         (onPageChange)="paginatorService.onPageChange($event)" 
         [first]="paginatorService.first()" 

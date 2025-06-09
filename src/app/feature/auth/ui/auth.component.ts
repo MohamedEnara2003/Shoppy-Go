@@ -6,9 +6,15 @@ import { RouterOutlet } from '@angular/router';
   imports: [RouterOutlet],
   template: `
   <section aria-label="Authentication Page" class="w-full grid grid-cols-1 md:grid-cols-2 p-2">
+
     <aside class="w-full md:h-[80vh] hidden md:inline-block" aria-hidden="true">
+    @defer (on viewport) {
       <img [src]="banner" alt="Authentication Banner" class="size-full object-cover" loading="lazy">
+    }@placeholder {
+      <div class="size-full  bg-gray-300 animate-pulse" role="status" aria-label="Loading Auth banner"></div>
+    }
     </aside>
+
     <main class="size-full flex justify-center" role="main">
       <div class="w-full lg:w-[400px] h-full">
         <router-outlet />

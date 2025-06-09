@@ -60,7 +60,9 @@ import { ConfirmationService } from 'primeng/api';
                 <p-rating [(ngModel)]="product.rating" [readonly]="true" aria-label="Product rating" />
               </td>
               <td>
-                <p-tag [value]="product.stock_status" [severity]="initStatus(product.stock_status)" aria-label="Stock status: {{ product.stock_status }}" />
+                <p-tag [value]="product.stock_status" 
+                [severity]="appStore.initProductStatus(product.stock_status)" 
+                aria-label="Stock status: {{ product.stock_status }}" />
               </td>
               <td>
                 <div class="flex gap-2" role="group" aria-label="Product actions">
@@ -133,10 +135,5 @@ export class DashboardTableComponent {
     });
   }
 
-  initStatus(status: ProductInventoryStatus): string {
-    if(status === 'INSTOCK') return 'success';
-    if(status === 'LOWSTOCK') return 'warn';
-    if(status === 'OUTSTOCK') return 'danger';
-    return 'Secondary';
-  }
+
 }

@@ -18,15 +18,17 @@ import { AppStore } from '../../../../store/app.store';
     CategoryCarouselComponent
   ],
   template: `
-    <main class="w-full flex flex-col justify-center gap-8" role="main">
-      <section class="w-full flex-col flex md:flex-row justify-between gap-2 mt-2 md:mt-5" aria-label="Main content area">  
+    <main class="w-full flex flex-col justify-center gap-5" role="main">
+
+      <section class="w-full flex-col flex md:flex-row justify-between gap-2 mt-2 md:mt-5" 
+      aria-label="Main content area">  
         <nav class="w-full md:w-[25%]" aria-label="Category navigation">
           <app-list-categories />
         </nav>
         <app-main-carousel class="w-full md:w-[75%]" aria-label="Featured products carousel"/>
       </section>
       
-      <section aria-label="Category products">
+      <section aria-label="Category products" class="grid grid-cols-1 gap-5">
         @for (category of appStore.categories(); track category) {
           <app-category-carousel 
             [category]="category"

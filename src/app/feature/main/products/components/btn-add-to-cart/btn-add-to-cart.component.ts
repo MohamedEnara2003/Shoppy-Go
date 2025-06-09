@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
   selector: 'app-btn-add-to-cart',
   imports: [Button , Ripple],
   template: `
-
+  
   <p-button label="add to cart" pRipple  icon="pi pi-cart-plus" [raised]="true" 
   [style]="{backgroundColor : 'var(--color-primary)' , border : 'transparent'}"
-  [disabled]="product().stock_status === 'OUTSTOCK'"
+  [disabled]="!product() || product().stock_status === 'OUTSTOCK'"
   styleClass="size-full capitalize " class="size-full hover:opacity-90 duration-200 transition-opacity" 
   (onClick)="addToCart()"/>
   `,
@@ -19,6 +19,7 @@ import { Router } from '@angular/router';
 export class BtnAddToCartComponent {
   readonly appStore = inject(AppStore);
   readonly router = inject(Router);
+
   product = input.required<Product>();
   selectSize = input.required<ProductSize>();
   
