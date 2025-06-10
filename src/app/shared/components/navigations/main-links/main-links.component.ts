@@ -8,28 +8,28 @@ import { CartLinkComponent } from "../cart-link/cart-link.component";
   selector: 'app-main-links',
   imports: [CommonModule, RouterModule, CartLinkComponent],
   template: `
-    <ul aria-label="Main List Links" role="menuitem" 
-    class="w-full flex justify-around  items-center">
-    @for (item of headerLinks(); track item) {
-    <li >
-    <a [href]="item.path" [routerLink]="item.path" 
-    class=" text-primary hover:text-secondary duration-300 text-[8px] md:text-sm font-[500] 
-    flex flex-col  items-center "
-    [ngClass]="item.class" routerLinkActive="text-secondary">
-    <span class="lg:hidden" >
-    <i [ngClass]="item.linkIcon"  style="font-size: 1.4rem;" ></i>
-    </span>
-    <p >{{item.linkName}}</p>
-    </a>
-    </li>
-    }
+    <ul aria-label="Main List Links" role="menu" 
+    class="w-full flex justify-around items-center text-gray-900 text-[10px] md:text-sm lg:text-sm font-[500]">
+      @for (item of headerLinks(); track item) {
+        <li role="menuitem">
+          <a [href]="item.path" 
+            [routerLink]="item.path" 
+            class=" hover:text-secondary duration-300   flex flex-col items-center"
+            [ngClass]="item.class" 
+            routerLinkActive="text-secondary">
+            <span class="lg:hidden">
+              <i [ngClass]="item.linkIcon" style="font-size: 1.4rem;"></i>
+            </span>
+            <p >{{item.linkName}}</p>
+          </a>
+        </li>
+      }
 
-    <li class="lg:hidden ">
-    <app-cart-link >
-    <p class="text-[8px] md:text-sm font-[500] ">cart</p>
-    </app-cart-link>
-    </li>
-
+      <li class="lg:hidden" role="menuitem">
+        <app-cart-link>
+          <p class="">cart</p>
+        </app-cart-link>
+      </li>
     </ul>
   `,
 })

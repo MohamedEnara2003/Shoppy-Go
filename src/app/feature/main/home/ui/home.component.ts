@@ -48,6 +48,7 @@ import { AppStore } from '../../../../store/app.store';
         <app-new-arrival/>
       </section>
     </main>
+    
   `,
 })
 export class HomeComponent {

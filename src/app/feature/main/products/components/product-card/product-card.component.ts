@@ -10,7 +10,7 @@ import { AppStore } from '../../../../../store/app.store';
   imports: [SharedModule, RouterModule, BtnAddToCartComponent],
   template: `
   <article 
-    class="group relative w-full h-70 flex flex-col justify-between text-primary shadow shadow-gray-400 
+    class="group relative w-full h-60 flex flex-col justify-between text-primary shadow shadow-gray-500 
     rounded-box hover:shadow-xl p-2 duration-200 transition-shadow"
     [attr.aria-label]="'Product: ' + product().title"
     role="article">
@@ -75,12 +75,12 @@ import { AppStore } from '../../../../../store/app.store';
   </div>
 
   <div class="w-full flex flex-col gap-2">
-  <h2 class="line-clamp-1 capitalize text-sm">{{product().title}}</h2>
+  <h2 class="line-clamp-1 capitalize text-sm text-gray-900">{{product().title}}</h2>
 
   <div class="flex gap-4 text-sm">
-  <small class="text-red-500" aria-label="Final price">{{product().final_price | currency : 'EGP' }}</small>
+  <small class="text-red-600 font-medium" aria-label="Final price">{{product().final_price | currency : 'EGP' }}</small>
   @if(product().final_price !== product().price ){
-    <small class="line-through" aria-label="Original price">{{product().price | currency : 'EGP' }}</small>
+    <small class="line-through text-gray-600" aria-label="Original price">{{product().price | currency : 'EGP' }}</small>
   }
   </div>
   <div aria-label="Product rating">

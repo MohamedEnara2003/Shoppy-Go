@@ -9,7 +9,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   template: `
   @if(isScroll()){ 
   <nav aria-label="Navigation Links"  role="navigation" 
-  class="w-full fixed bottom-0 left-0 bg-gray-100 shadow shadow-primary p-2  animate-sideUp">
+  class="w-full fixed bottom-0 left-0 bg-gray-100 shadow shadow-primary p-2  
+  animate-sideUp z-40">
   <app-main-links class="lg:hidden" />
   </nav>
   }

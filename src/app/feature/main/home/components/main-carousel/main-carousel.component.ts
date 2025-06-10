@@ -8,16 +8,22 @@ import { CommonModule } from '@angular/common';
   imports: [CarouselModule, RouterModule, CommonModule],
   template: `
 <p-carousel [value]="mainImages()" [numVisible]="1" [numScroll]="1" 
-[circular]="true" [showNavigators]="false" [autoplayInterval]="3000"> 
-<ng-template let-value #item>
+[circular]="true" [showNavigators]="false" [autoplayInterval]="3000"
+aria-label="Featured products carousel"> 
+<ng-template let-value pTemplate="item">
     <div class="w-full aspect-[16/8] bg-gray-100 flex justify-between items-center relative"
-    [routerLink]="value.path" [queryParams]="value.categoryQuery">
+    [routerLink]="value.path" 
+    [queryParams]="value.categoryQuery"
+    role="link"
+    [attr.aria-label]="'View ' + (value.categoryQuery?.category || 'products')">
         <img [src]="value.img_url" 
-            [alt]="value.title" 
+            [alt]="value.categoryQuery?.category + ' banner image'" 
             (error)="handleFailedImages(value.img_url)"
             class="w-full h-full object-cover"
             loading="eager"
             decoding="async"
+            width="600" 
+            height="400"
             fetchpriority="high" />
     </div>
 </ng-template>

@@ -98,9 +98,9 @@ export const ProductsStore =  signalStoreFeature(
         }
         
         return Array.from(categoryMap.entries()).map(([category, types]) => {
-            const categoryProducts = productMap.get(category) || [];
             const typeGroups = [];
-            const typesArray = Array.from(types);
+            const typesArray = Array.from(types).sort();
+            const categoryProducts = (productMap.get(category) || []).sort((a, b) => a.title.localeCompare(b.title));
             
             for (let i = 0; i < typesArray.length; i += 2) {
                 typeGroups.push(typesArray.slice(i, i + 2));

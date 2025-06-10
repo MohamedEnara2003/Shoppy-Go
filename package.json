@@ -24,7 +24,6 @@
     "@supabase/supabase-js": "^2.49.4",
     "@tailwindcss/postcss": "^4.1.7",
     "dayjs": "^1.11.13",
-    "json": "^11.0.0",
     "postcss": "^8.5.3",
     "primeicons": "^7.0.0",
     "primeng": "^19.1.2",

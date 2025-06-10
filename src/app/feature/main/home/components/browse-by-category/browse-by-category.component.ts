@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
 import { HighlightsDetailsComponent } from "../highlights-details/highlights-details.component";
 import { CategoriesService } from '../../../../../core/services/categories.service';
 @Component({
   selector: 'app-browse-by-category',
-  imports: [CarouselModule, HighlightsDetailsComponent],
+  imports: [CarouselModule, HighlightsDetailsComponent, ButtonModule],
   template: `
   <section class="w-full flex flex-col justify-center items-center gap-10">
     <app-highlights-details
@@ -20,7 +21,7 @@ import { CategoriesService } from '../../../../../core/services/categories.servi
       [showNavigators]="true"
       class="w-full">
       
-      <ng-template let-category #item>
+      <ng-template let-category pTemplate="item">
         @defer (on viewport) {
           <div class="w-full aspect-square rounded-b-lg flex justify-center items-center border-b-2 border-b-secondary  
             hover:opacity-80 duration-200 transition-color cursor-pointer p-4">

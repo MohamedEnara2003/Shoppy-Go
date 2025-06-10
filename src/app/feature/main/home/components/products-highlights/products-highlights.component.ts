@@ -8,18 +8,21 @@ import { CarouselModule } from 'primeng/carousel';
   selector: 'app-products-highlights',
   imports: [ProductCardComponent, CarouselModule],
   template: `
-    <section class="w-full "
+    <section class="w-full flex flex-col gap-2"
       aria-label="Featured Products">
       <ng-content/>
-      <div >
+      <div>
         <p-carousel 
-          [numVisible]="3" [numScroll]="3" [circular]="false"
+          [numVisible]="3" 
+          [numScroll]="3" 
+          [circular]="false"
           [value]="products()" 
           [responsiveOptions]="responsiveOptions"
           [showIndicators]="false"
-          [showNavigators]="true">
+          [showNavigators]="true"
+          [ariaLabel]="'Featured Products Carousel'">
           <ng-template let-product pTemplate="item">
-            <div class="p-2">
+            <div>
               <app-product-card [product]="product" />
             </div>
           </ng-template>

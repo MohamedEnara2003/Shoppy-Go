@@ -6,11 +6,10 @@ import { SharedModule } from '../../../modules/shared.module';
   selector: 'app-cart-link',
   imports: [SharedModule],
   template: `
-      <a routerLink="/main/cart"  routerLinkActive="text-secondary"
-              class="flex flex-col items-center"
-              aria-label="View shopping cart">
-              <span>
-              <i class="pi pi-shopping-cart" 
+            <a routerLink="/main/cart"  routerLinkActive="text-secondary"
+            class="text-gray-900 hover:text-secondary duration-300 flex flex-col items-center">
+            <span >
+            <i class="pi pi-shopping-cart" 
                 pBadge 
                 severity="danger"  
                 [value]="appStore.cartsCount()" 
@@ -18,11 +17,11 @@ import { SharedModule } from '../../../modules/shared.module';
                 style="font-size: 1.4rem"
                 aria-hidden="true">
               </i>
-              </span>
-              <ng-content />
-            </a>
+            </span>
+            <ng-content />
+          </a>
   `,
-  styles: ``
+
 })
 export class CartLinkComponent {
   readonly appStore = inject(AppStore);

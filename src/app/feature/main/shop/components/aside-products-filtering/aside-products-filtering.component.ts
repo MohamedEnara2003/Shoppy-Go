@@ -11,15 +11,16 @@ import { Options } from '@angular-slider/ngx-slider';
   imports: [SharedModule],
   template: `
   <section > 
-
+    
   <button (click)="isLoad.set(!isLoad())"
   type="button" class=" cursor-pointer hover:text-primary/70 duration-200 transition-colors p-2">
   <i class="pi pi-bars" [style]="{fontSize : '1.2rem'}"></i>
   </button>
   @defer (on viewport) {
   <aside class="p-3  sm:w-full duration-500  rounded animate-sideLeft sm:animate-none"
-  [ngClass]="isLoad() ? 'pb-10  w-[85%] fixed sm:relative h-screen sm:h-auto top-0 left-0 overflow-y-auto    bg-white z-50' 
-  : 'hidden  sm:inline-block '" style="scrollbar-width: none;">
+  [ngClass]="isLoad() ? 
+  'pb-10  w-[85%] fixed sm:relative h-screen sm:h-auto top-0 left-0 overflow-y-auto  bg-white z-[100]' 
+  : 'hidden  sm:inline-block'" style="scrollbar-width: none;">
 
   <button (click)="isLoad.set(!isLoad())"
   type="button" class="sm:hidden cursor-pointer hover:text-primary/70 duration-200 transition-colors py-1">
@@ -132,7 +133,7 @@ import { Options } from '@angular-slider/ngx-slider';
   <div class="w-full h-screen"></div>
 }
   @if(isLoad()){
-  <div (click)="isLoad.set(!isLoad())" class="w-full h-screen bg-primary/50 fixed top-0 left-0 z-40"></div>
+  <div (click)="isLoad.set(!isLoad())" class="w-full h-screen bg-primary/50 fixed top-0 left-0 z-50"></div>
   }
 
   </section>
