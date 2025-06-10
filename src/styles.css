@@ -41,7 +41,7 @@ color: var(--color-primary);
 }
 
 .btn-secondary {
-@apply bg-secondary shadow shadow-black hover:bg-secondary/90 text-white/80 capitalize rounded-sm
+@apply bg-secondary shadow  hover:bg-secondary/90 text-white/80 capitalize rounded-sm
 duration-300 transition-all font-semibold px-4 p-2 cursor-pointer border border-secondary;
 }
 .btn-add-cart {

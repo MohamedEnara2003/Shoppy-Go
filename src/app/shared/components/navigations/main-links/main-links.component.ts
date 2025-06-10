@@ -2,26 +2,34 @@ import { Component, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LinkType } from '../../../interfaces/links.type';
 import { CommonModule } from '@angular/common';
+import { CartLinkComponent } from "../cart-link/cart-link.component";
 
 @Component({
   selector: 'app-main-links',
-  imports: [CommonModule , RouterModule],
+  imports: [CommonModule, RouterModule, CartLinkComponent],
   template: `
     <ul aria-label="Main List Links" role="menuitem" 
     class="w-full flex justify-around  items-center">
     @for (item of headerLinks(); track item) {
     <li >
     <a [href]="item.path" [routerLink]="item.path" 
-    class=" text-primary hover:text-secondary duration-300 text-[10px] md:text-sm font-[500] 
+    class=" text-primary hover:text-secondary duration-300 text-[8px] md:text-sm font-[500] 
     flex flex-col  items-center "
     [ngClass]="item.class" routerLinkActive="text-secondary">
-    <span class="lg:hidden " >
-    <i [ngClass]="item.linkIcon"  style="font-size: 1.2rem;" ></i>
+    <span class="lg:hidden" >
+    <i [ngClass]="item.linkIcon"  style="font-size: 1.4rem;" ></i>
     </span>
-    {{item.linkName}}
+    <p >{{item.linkName}}</p>
     </a>
     </li>
     }
+
+    <li class="lg:hidden ">
+    <app-cart-link >
+    <p class="text-[8px] md:text-sm font-[500] ">cart</p>
+    </app-cart-link>
+    </li>
+
     </ul>
   `,
 })
@@ -52,12 +60,13 @@ export class MainLinksComponent {
       linkIcon: 'pi pi-heart',
       path: '/main/wishlist',
       class: 'lg:hidden',
-    }, 
-    {
-      linkName: 'Cart',
-      linkIcon: 'pi pi-shopping-cart',
-      path: '/main/cart',
-      class: 'lg:hidden',
-    }, 
+    },  
   ]).asReadonly()
 }
+
+// {
+//   linkName: 'Cart',
+//   linkIcon: 'pi pi-shopping-cart',
+//   path: '/main/cart',
+//   class: 'lg:hidden',
+// },

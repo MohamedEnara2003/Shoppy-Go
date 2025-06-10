@@ -5,9 +5,11 @@
 #- npm install tailwindcss @tailwindcss/postcss postcss --force
 #- npm install --save @angular-slider/ngx-slider
 #- npm install dayjs
-#- npm i @ngx-translate/core
+
+<!-- No App Translation Now>
+<!-- #- npm i @ngx-translate/core
 #- npm i @ngx-translate/http-loader
-#- npm i ngx-translate-messageformat-compiler
+#- npm i ngx-translate-messageformat-compiler -->
 
 # NGRX => State Management:
 #- ng add @ngrx/store@latest

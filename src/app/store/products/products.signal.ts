@@ -186,7 +186,7 @@ export const ProductsStore =  signalStoreFeature(
     this.getMinAndMaxPrice(products);
     }),
     catchError((err : Error) =>  {
-    patchState(store ,({productsError : err.message}))
+    patchState(store ,({ isProductsLoading : false , productsError : err.message}))
     return of([])
     }), takeUntilDestroyed()
     ).subscribe();

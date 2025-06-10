@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { checkoutGuard } from '../../core/guards/checkout.guard';
+import { isProductsErrorGuard } from '../../core/guards/is-products-error.guard';
 
 export const mainRoutes: Routes = [
     {path : 'auth', 
@@ -7,7 +8,8 @@ export const mainRoutes: Routes = [
         loadChildren : () => import('../auth/auth.routes').then((r) => r.authRoutes)
     },
 
-    {path : 'home' , loadComponent : () => import('./home/ui/home.component').then((c) => c.HomeComponent)},
+    {path : 'home' , canMatch : [isProductsErrorGuard] ,
+    loadComponent : () => import('./home/ui/home.component').then((c) => c.HomeComponent)},
     {path : 'about' , loadComponent : () => import('./about/ui/about.component').then((c) => c.AboutComponent)},
     {path : 'contact' , loadComponent : () => import('./contact/ui/contact.component').then((c) => c.ContactComponent)},
     {path : 'cart' , loadComponent : () => import('./cart/ui/cart.component').then((c) => c.CartComponent)},
@@ -18,10 +20,16 @@ export const mainRoutes: Routes = [
     canActivate : [checkoutGuard],
     },
     {path : 'orders' , loadComponent : () => import('./orders/ui/orders.component').then((c) => c.OrdersComponent)},
-    {path : 'shop' , loadComponent : () => import('./shop/ui/shop.component')
+    
+    {path : 'shop' , canMatch : [isProductsErrorGuard] ,
+    loadComponent : () => import('./shop/ui/shop.component')
     .then((c) => c.ShopComponent)},
 
-    {path : 'product/:id' , loadComponent : () => import('./products/pages/product-details/product-details.component')
+    {path : 'products-error' , loadComponent : () => import('./products/pages/products-error/products-error.component')
+    .then((c) => c.ProductsErrorComponent)},
+
+    {path : 'product/:id' ,   canMatch : [isProductsErrorGuard] ,
+        loadComponent : () => import('./products/pages/product-details/product-details.component')
     .then((c) => c.ProductDetailsComponent)
     },
 

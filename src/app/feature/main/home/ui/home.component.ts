@@ -19,7 +19,6 @@ import { AppStore } from '../../../../store/app.store';
   ],
   template: `
     <main class="w-full flex flex-col justify-center gap-5" role="main">
-
       <section class="w-full flex-col flex md:flex-row justify-between gap-2 mt-2 md:mt-5" 
       aria-label="Main content area">  
         <nav class="w-full md:w-[25%]" aria-label="Category navigation">

@@ -5,7 +5,7 @@ import { Component, input } from '@angular/core';
   selector: 'app-select-lang',
   imports: [CommonModule],
   template: `
-  <a href="#" class="flex gap-1 justify-center items-center"
+  <a  class="flex gap-1 justify-center items-center"
   [ngClass]="langClass()">
   <span>English</span>
   <i class="pi pi-angle-down "></i>

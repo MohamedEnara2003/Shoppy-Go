@@ -22,6 +22,7 @@ import { OrderAnalyticsComponent } from "../components/order-analytics/order-ana
           [tableStyle]="{ 'min-width': '50rem' }"
           [rowsPerPageOptions]="[5, 10, 20]"
           aria-label="Orders List"
+          [loading]="orderStore.isLoading()"
         >
           <ng-template #header>
             <tr>
@@ -60,6 +61,11 @@ import { OrderAnalyticsComponent } from "../components/order-analytics/order-ana
               </td> 
             </tr>
           </ng-template>
+          <ng-template pTemplate="emptymessage">
+        <tr>
+          <td colspan="4" class="text-center py-4">No Order found</td>
+        </tr>
+      </ng-template>
         </p-table>
       </section>
 

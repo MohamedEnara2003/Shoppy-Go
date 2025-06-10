@@ -10,15 +10,15 @@ import { CommonModule } from '@angular/common';
 <p-carousel [value]="mainImages()" [numVisible]="1" [numScroll]="1" 
 [circular]="true" [showNavigators]="false" [autoplayInterval]="3000"> 
 <ng-template let-value #item>
-    <div class="w-full aspect-[16/9] bg-gray-100 flex justify-between items-center relative"
+    <div class="w-full aspect-[16/8] bg-gray-100 flex justify-between items-center relative"
     [routerLink]="value.path" [queryParams]="value.categoryQuery">
         <img [src]="value.img_url" 
             [alt]="value.title" 
+            (error)="handleFailedImages(value.img_url)"
             class="w-full h-full object-cover"
-            width="1920"
-            height="1080"
             loading="eager"
-            decoding="async" />
+            decoding="async"
+            fetchpriority="high" />
     </div>
 </ng-template>
 </p-carousel>
@@ -57,6 +57,9 @@ export class MainCarouselComponent {
       path: '/main/shop',
       categoryQuery : {category : 'Toys & Games'}
     },
-  
   ]);
+
+  handleFailedImages(imageUrl: string): void {
+    this.mainImages.update(images => images.filter(img => img.img_url !== imageUrl));
+  }
 }
