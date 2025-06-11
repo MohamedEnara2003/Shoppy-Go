@@ -32,6 +32,7 @@ import { NgxSliderModule } from '@angular-slider/ngx-slider';
 import { InputMaskModule } from 'primeng/inputmask';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { AccordionModule } from 'primeng/accordion';
+
 const Imports = [
   CommonModule,
   RouterLink,
@@ -60,9 +61,9 @@ const Imports = [
   AutoCompleteModule,
   CheckboxModule,
   SelectModule,
-  FileUpload ,
+  FileUpload,
   ConfirmPopupModule,
-  ProgressSpinnerModule ,
+  ProgressSpinnerModule,
   PasswordModule,
   BadgeModule,
   DividerModule,

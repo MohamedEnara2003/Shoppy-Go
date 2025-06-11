@@ -22,5 +22,5 @@ import { Component } from '@angular/core';
   `,
 })
 export class AboutBannerComponent {
-  imgBanner: string = 'https://dnfkmgvtpnayboephfas.supabase.co/storage/v1/object/public/images//about.webp';
+  imgBanner: string = 'https://dnfkmgvtpnayboephfas.supabase.co/storage/v1/object/public/images//about%20(1).webp';
 }

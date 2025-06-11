@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
       <article role="banner" class="relative size-full bg-primary flex justify-center items-end rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 aspect-[3/2] min-h-[400px]">
         @defer (on viewport) {
         <img 
-          src="https://dnfkmgvtpnayboephfas.supabase.co/storage/v1/object/public/images//ps5-slim.png" 
+          src="https://dnfkmgvtpnayboephfas.supabase.co/storage/v1/object/public/images//ps5-slim.webp" 
           alt="PlayStation 5 Slim Console - Latest Gaming Technology" 
           class="h-[90%] object-cover transform hover:scale-105 transition-transform duration-300"
           loading="lazy"
@@ -67,7 +67,7 @@ import { RouterModule } from '@angular/router';
         <article class="relative col-span-2 w-full bg-[#0D0D0D]/95 flex justify-center items-center rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 aspect-square min-h-[200px]">
         @defer (on viewport) {
           <img 
-            src="https://dnfkmgvtpnayboephfas.supabase.co/storage/v1/object/public/images//69-694768_amazon.png" 
+            src="https://dnfkmgvtpnayboephfas.supabase.co/storage/v1/object/public/images//69-694768_amazon.webp" 
             alt="Amazon Premium Wireless Speakers" 
             class="size-[90%] object-contain transform hover:scale-105 transition-transform duration-300"
             loading="lazy"
@@ -91,7 +91,7 @@ import { RouterModule } from '@angular/router';
         <article class="relative col-span-2 w-full bg-[#0D0D0D]/95 flex justify-center items-center rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 aspect-square min-h-[200px]">
         @defer (on viewport) {
           <img 
-            src="https://dnfkmgvtpnayboephfas.supabase.co/storage/v1/object/public/images//Frame706.png" 
+            src="https://dnfkmgvtpnayboephfas.supabase.co/storage/v1/object/public/images//Frame706.webp" 
             alt="GUCCI INTENSE OUD EDP - Luxury Perfume" 
             class="size-[90%] object-contain transform hover:scale-105 transition-transform duration-300"
             loading="lazy"

@@ -37,7 +37,12 @@ export class ProductsHighlightsComponent {
   
   responsiveOptions = [
     {
-        breakpoint: '1400px',
+        breakpoint: '2000px',
+        numVisible: 5,
+        numScroll: 1
+    },
+    {
+        breakpoint: '1440px',
         numVisible: 4,
         numScroll: 1
     },
